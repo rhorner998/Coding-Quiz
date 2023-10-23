@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code Quiz</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+  <h1>Code Quiz</h1>
+  <p>Time Left: <span id="timer">60</span> seconds</p>
+  <p>Score: <span id="score">0</span></p>
+  <div id="question-container">
+    <!-- Questions will be displayed here -->
+  </div>
+  <button id="start-button">Start Quiz</button>
+
+  <script>
+    // Define your questions and answers
+    const questions = [
+    { question: "Name the popoular JavaScript library used mainly for DOM Manipulation?", answer: "jQuery" },
+  { question: "What does HTML stand for?", answer: "Hyper Text Markup Language" },
+  { question: "A Javascript data type that represents a true or false value is called a what?", answer: "Boolean" },
+  { question: "In order to target specific HTML elements in CSS you use...?", answer: "Selectors" },
+  { question: "The open-source front-end framework for web development designed by Twitter is named what?", answer: "Bootstrap" },
+      // Add more questions here
+    ];
+
+    // Other variables
+    let score = 0; // Player's score
+    let timeLeft = 60; // Initial time limit
+
+    function startQuiz() {
+      // Start the timer
+      const timer = setInterval(function () {
+        timeLeft--;
+        document.getElementById('timer').textContent = timeLeft;
+        if (timeLeft <= 0) {
+          endGame();
+          clearInterval(timer);
+        }
+      }, 1000);
+
+      // Show the first question
+      showQuestion(0);
+    }
+
+    function showQuestion(questionIndex) {
+      const currentQuestion = questions[questionIndex];
+      const questionContainer = document.getElementById('question-container');
+      questionContainer.innerHTML = '';
+      const questionElement = document.createElement('p');
+      questionElement.textContent = currentQuestion.question;
+      questionContainer.appendChild(questionElement);
+
+      // Allow the user to answer (you would need to create an input element for this)
+
+      // Create an input field for the user to answer
+      const answerInput = document.createElement('input');
+      answerInput.type = 'text';
+      answerInput.placeholder = 'Your answer';
+      questionContainer.appendChild(answerInput);
+
+      // Create a submit button
+      const submitButton = document.createElement('button');
+      submitButton.textContent = 'Submit';
+      questionContainer.appendChild(submitButton);
+
+      // Add an event listener to the submit button
+      submitButton.addEventListener('click', function () {
+        // Get the user's answer from the input field
+        const userAnswer = answerInput.value;
+
+        // Check if the user's answer is correct
+        if (userAnswer === currentQuestion.answer) {
+          score++; // Increase the score for a correct answer
+          document.getElementById('score').textContent = score;
+        } else {
+          timeLeft -= 10; // Subtract time for an incorrect answer
+        }
+
+        // Show the next question or end the game
+        if (questionIndex < questions.length - 1) {
+          showQuestion(questionIndex + 1);
+        } else {
+          endGame();
+        }
+      });
+    }
+
+    function endGame() {
+      // Display the final score
+      const finalScore = document.getElementById('score').textContent;
+      alert(`Game over! Your final score is ${finalScore}`);
+
+      // Allow the user to save initials and score
+      const playerInitials = prompt("Enter your initials:");
+      if (playerInitials !== null) { // Check if the user canceled the prompt
+        // You can implement a way to save the player's initials and score here, such as sending it to a server or saving it locally.
+        // For this example, we'll simply display the saved initials and score in an alert.
+        alert(`Initials: ${playerInitials}\nScore: ${finalScore}`);
+      }
+    }
+
+    // Start the quiz when the start button is clicked
+    document.getElementById('start-button').addEventListener('click', startQuiz);
+  </script>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+/* Style for the body element */
+body {
+  font-family: 'Georgia', serif;
+  background-color: #df97e9;
+  text-align: center;
+}
+
+/* Style for the title */
+h1 {
+  font-size: 32px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+/* Style for the button */
+#start-button {
+  background-color: #007bff;
+  color: #fff;
+  font-size: 20px;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#start-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Style for timer and score display */
+p {
+  font-size: 20px;
+  color: #333;
+  margin: 20px;
+}
+
+/* Style for question container */
+#question-container {
+  background-color: #f9f9f9;
+  padding: 30px;
+  margin: 30px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Style for user input elements (e.g., text input for answers) */
+input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin: 20px 0;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for the final score display and save functionality */
+#score {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
