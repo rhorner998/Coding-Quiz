@@ -1,19 +1,19 @@
 
-// Define your questions and answers
+// Define questions and answers
 const questions = [
   { question: "Name the popoular JavaScript library used mainly for DOM Manipulation?", answer: "jQuery" },
   { question: "What does HTML stand for?", answer: "Hyper Text Markup Language" },
   { question: "A Javascript data type that represents a true or false value is called a what?", answer: "Boolean" },
   { question: "In order to target specific HTML elements in CSS you use...?", answer: "Selectors" },
   { question: "The open-source front-end framework for web development designed by Twitter is named what?", answer: "Bootstrap" },
-  // Add more questions here
+  
 ];
 
 for (let i = 0; i < questions.length; i++) {
   const question = questions[i].question;
   const answer = questions[i].answer;
   
-  // Do something with the question and answer, for example:
+  // Log question and answer:
   console.log(`Question ${i + 1}: ${question}`);
   console.log(`Answer ${i + 1}: ${answer}`);
 }
@@ -45,23 +45,23 @@ function showQuestion(questionIndex) {
   questionElement.textContent = currentQuestion.question;
   questionContainer.appendChild(questionElement);
 
-  // Create an input field for the user to answer
+  // input field 
   const answerInput = document.createElement('input');
   answerInput.type = 'text'; // You can change the input type as needed
   answerInput.placeholder = 'Your answer';
   questionContainer.appendChild(answerInput);
 
-  // Create a submit button
+  // submit button
   const submitButton = document.createElement('button');
   submitButton.textContent = 'Submit';
   questionContainer.appendChild(submitButton);
 
-  // Add an event listener to the submit button
+  // event listener to the submit button
   submitButton.addEventListener('click', function () {
     // Get the user's answer from the input field
     const userAnswer = answerInput.value;
 
-    // Check if the user's answer is correct
+    // Check user's answer
     if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
       score++; // Increase the score for a correct answer
       document.getElementById('score').textContent = score;
@@ -85,7 +85,7 @@ function endGame() {
 }
 
 function saveScore() {
-  // Implement a way to save the player's initials and score
+  //
 }
 
 // Start the quiz when the start button is clicked
